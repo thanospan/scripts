@@ -19,12 +19,14 @@ PRIMARY_HEIGHT=768
 PRIMARY_RESOLUTION="${PRIMARY_WIDTH}x${PRIMARY_HEIGHT}"
 
 EXTERNAL_DISPLAY="VGA-1"
-# Connect to external 1080p display using VGA to get modeline
-# xrandr --verbose
-EXTERNAL_MODELINE="1920x1080 148.50 1920 2008 2052 2200 1080 1084 1089 1125 +hsync +vsync"
 EXTERNAL_WIDTH=1920
 EXTERNAL_HEIGHT=1080
 EXTERNAL_RESOLUTION="${EXTERNAL_WIDTH}x${EXTERNAL_HEIGHT}"
+# EXTERNAL_MODELINE=$(cvt -r 1920 1080 60 | grep Mode | sed -e 's/.*"/1920x1080/')
+# or
+# Connect to external 1080p display using VGA to get modeline:
+# xrandr --verbose
+EXTERNAL_MODELINE="1920x1080 148.50 1920 2008 2052 2200 1080 1084 1089 1125 +hsync +vsync"
 
 # Primary display position (top left corner):  (0, (1080-768)/2 = 156)
 PRIMARY_POSITION="0x$(((${EXTERNAL_HEIGHT}-${PRIMARY_HEIGHT})/2))"
