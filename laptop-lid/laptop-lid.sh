@@ -55,6 +55,10 @@ parse_options () {
       show_status
       restart
       ;;
+    help)
+      show_help
+      exit
+      ;;
     *)
       echo "Option not found"
       show_help
