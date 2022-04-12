@@ -3,8 +3,7 @@
 show_warning () {
   read -p "---Remove all Docker containers, volumes and networks? [y/n] " -n 1 -r
   echo
-  if [[ ! $REPLY =~ ^[Yy]$ ]]
-  then
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit
   fi
 }
