@@ -14,4 +14,7 @@ Options:
   --temp       Range: [1700, 4700]
   --from       Range: [00:00, 23:59]
   --to         Range: [00:00, 23:59]
+  
+Example:
+night-light.sh --from 19:00 --to 06:00 --temp 3200 --on
 ```
