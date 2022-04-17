@@ -3,7 +3,7 @@
 set -e
 
 show_help () {
-  echo "Usage: sudo upatras-vpn.sh"
+  echo "Usage: sudo $0"
 }
 
 check_permissions () {
