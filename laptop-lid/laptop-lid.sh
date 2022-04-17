@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 restart () {
   read -p "Restart now? [y/n] " -n 1 -r
   echo
