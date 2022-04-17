@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Primary display: 1366x768
 # External display: 1920x1080 (Connected using VGA to HDMI adapter)
 
