@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 show_warning () {
   read -p "---Remove all Docker containers, volumes and networks? [y/n] " -n 1 -r
   echo
@@ -24,8 +26,7 @@ remove_volumes () {
 
 remove_networks () {
   echo "---Removing networks..."
-  BUILTIN_NETWORKS=$(docker network ls -q -f type=builtin)
-  NETWORKS=$(docker network ls -q | grep -v "${BUILTIN_NETWORKS}")
+  NETWORKS=$(docker network ls -q -f type=custom)
   echo $NETWORKS | xargs -r docker network rm
   echo "---Networks removed!"
 }
