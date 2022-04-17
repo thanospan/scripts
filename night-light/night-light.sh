@@ -46,9 +46,9 @@ show_status () {
     echo "Status: Off"
   fi
 
-  # from=$(gsettings get org.gnome.settings-daemon.plugins.color night-light-schedule-from)
-  # from=$(printf "%0.4f\n" $from)
-  # from=$(decimal_to_time $from)
+  from=$(gsettings get org.gnome.settings-daemon.plugins.color night-light-schedule-from)
+  from=$(printf "%0.4f\n" $from)
+  from=$(decimal_to_time $from)
   echo "From: $from"
 
   to=$(gsettings get org.gnome.settings-daemon.plugins.color night-light-schedule-to)
