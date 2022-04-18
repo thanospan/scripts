@@ -16,7 +16,7 @@ restart () {
 }
 
 show_help () {
-  echo "Usage: sudo $0 [status|poweroff|suspend|lock|ignore]"
+  echo "Usage: sudo $0 [status|poweroff|suspend|lock|ignore|help]"
 }
 
 show_status () {
@@ -62,7 +62,7 @@ parse_options () {
       exit
       ;;
     *)
-      echo "Option not found"
+      echo "Option $@ not found"
       show_help
       exit
       ;;
