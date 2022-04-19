@@ -3,7 +3,7 @@
 set -e
 
 show_help () {
-  echo "---Usage: sudo $0"
+  echo "---Usage: sudo bash $0"
 }
 
 check_permissions () {
