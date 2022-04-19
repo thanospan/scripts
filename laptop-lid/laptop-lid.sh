@@ -62,7 +62,7 @@ parse_options () {
       exit
       ;;
     *)
-      echo "Option $@ not found"
+      echo "Option '$@' not found"
       show_help
       exit
       ;;

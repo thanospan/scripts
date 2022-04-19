@@ -36,8 +36,13 @@ PRIMARY_POSITION="0x$(((${EXTERNAL_HEIGHT}-${PRIMARY_HEIGHT})/2))"
 # External display position (top left corner): (1366, 0)
 EXTERNAL_POSITION="${PRIMARY_WIDTH}x0"
 
+echo "---Setting primary display's resolution to $PRIMARY_RESOLUTION..."
+echo "---Setting external display's resolution to $EXTERNAL_RESOLUTION..."
+
 xrandr --newmode ${EXTERNAL_MODELINE}
 xrandr --addmode ${EXTERNAL_DISPLAY} ${EXTERNAL_RESOLUTION}
 xrandr \
   --output ${PRIMARY_DISPLAY} --mode ${PRIMARY_RESOLUTION} --pos ${PRIMARY_POSITION} --primary \
   --output ${EXTERNAL_DISPLAY} --mode ${EXTERNAL_RESOLUTION} --pos ${EXTERNAL_POSITION}
+
+echo "---Done!"

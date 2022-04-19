@@ -63,6 +63,9 @@ show_status () {
 }
 
 parse_options () {
+  if [[ $# -eq 0 ]]; then
+    echo "See '$0 --help'"
+  fi
   while [[ $# -gt 0 ]]; do
     case $1 in
       --on)
@@ -114,7 +117,9 @@ parse_options () {
         shift
         ;;
       *)
-        echo "Option $1 not found"
+        echo "Option '$1' not found"
+        echo "See '$0 --help'"
+        echo
         shift
         ;;
     esac
