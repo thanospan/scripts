@@ -15,27 +15,26 @@ check_permissions () {
 }
 
 setup () {
-  echo "---Setup starting..."
-  echo
+  echo "---Setup started..."
 
   # docker-cleanup
-  sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/docker-cleanup/docker-cleanup.sh
+  sudo wget -q -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/docker-cleanup/docker-cleanup.sh
   sudo chmod +x /usr/local/bin/docker-cleanup.sh
 
   # laptop-lid
-  sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/laptop-lid/laptop-lid.sh
+  sudo wget -q -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/laptop-lid/laptop-lid.sh
   sudo chmod +x /usr/local/bin/laptop-lid.sh
 
   # night-light
-  sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/night-light/night-light.sh
+  sudo wget -q -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/night-light/night-light.sh
   sudo chmod +x /usr/local/bin/night-light.sh
 
   # upatras-vpn
-  sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/upatras-vpn/upatras-vpn.sh
+  sudo wget -q -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/upatras-vpn/upatras-vpn.sh
   sudo chmod +x /usr/local/bin/upatras-vpn.sh
 
   # vga2hdmi
-  sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/vga2hdmi/vga2hdmi.sh
+  sudo wget -q -P /usr/local/bin/ https://raw.githubusercontent.com/thanospan/scripts/main/vga2hdmi/vga2hdmi.sh
   sudo chmod +x /usr/local/bin/vga2hdmi.sh
 
   echo "---Done!"
