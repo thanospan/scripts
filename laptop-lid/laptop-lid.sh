@@ -16,7 +16,7 @@ restart () {
 }
 
 show_help () {
-  echo "Usage: sudo $0 [status|poweroff|suspend|lock|ignore|help]"
+  echo "Usage: sudo $filename [status|poweroff|suspend|lock|ignore|help]"
 }
 
 show_status () {
@@ -70,6 +70,8 @@ parse_options () {
 }
 
 main () {
+  filename=$(basename $0)
+
   check_permissions
   parse_options "$@"
 }

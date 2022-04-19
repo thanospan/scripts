@@ -3,7 +3,7 @@
 set -e
 
 show_help () {
-  echo "Usage: sudo $0"
+  echo "Usage: sudo $filename"
 }
 
 check_permissions () {
@@ -47,6 +47,8 @@ connect () {
 }
 
 main () {
+  filename=$(basename $0)
+
   check_permissions
   get_username
   get_password

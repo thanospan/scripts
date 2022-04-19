@@ -3,7 +3,7 @@
 set -e
 
 show_help () {
-  echo "---Usage: sudo bash $0"
+  echo "---Usage: sudo bash $filename"
 }
 
 check_permissions () {
@@ -41,6 +41,8 @@ setup () {
 }
 
 main () {
+  filename=$(basename $0)
+
   check_permissions
   setup
 }

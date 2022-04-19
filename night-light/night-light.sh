@@ -3,7 +3,7 @@
 set -e
 
 show_help () {
-  echo "Usage: $0 [OPTIONS]"
+  echo "Usage: $filename [OPTIONS]"
   echo
   echo "Options:"
   echo "  --help"
@@ -64,7 +64,7 @@ show_status () {
 
 parse_options () {
   if [[ $# -eq 0 ]]; then
-    echo "See '$0 --help'"
+    echo "See '$filename --help'"
   fi
   while [[ $# -gt 0 ]]; do
     case $1 in
@@ -118,7 +118,7 @@ parse_options () {
         ;;
       *)
         echo "Option '$1' not found"
-        echo "See '$0 --help'"
+        echo "See '$filename --help'"
         echo
         shift
         ;;
@@ -127,6 +127,8 @@ parse_options () {
 }
 
 main () {
+  filename=$(basename $0)
+
   parse_options "$@"
 }
 
