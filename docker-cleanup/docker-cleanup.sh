@@ -2,6 +2,18 @@
 
 set -e
 
+check_dependencies () {
+  echo "---Checking dependencies..."
+  dependencies="docker"
+  for dependency in $dependencies; do
+    if [[ -z $(command -v $dependency) ]]; then
+      echo "Command '$dependency' not found"
+      exit
+    fi
+  done
+  echo "---All dependencies are installed!"
+}
+
 show_warning () {
   read -p "---Remove all Docker containers, volumes and networks? [y/n] " -n 1 -r
   echo
@@ -32,6 +44,7 @@ remove_networks () {
 }
 
 main () {
+  check_dependencies
   show_warning
   remove_containers
   remove_volumes
