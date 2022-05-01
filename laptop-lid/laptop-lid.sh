@@ -45,22 +45,22 @@ parse_options () {
       exit
       ;;
     poweroff)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=poweroff/' $config_file
+      sed -i 's/.*HandleLidSwitch=.*/HandleLidSwitch=poweroff/' $config_file
       show_status
       restart
       ;;
     lock)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=lock/' $config_file
+      sed -i 's/.*HandleLidSwitch=.*/HandleLidSwitch=lock/' $config_file
       show_status
       restart
       ;;
     suspend)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=suspend/' $config_file
+      sed -i 's/.*HandleLidSwitch=.*/HandleLidSwitch=suspend/' $config_file
       show_status
       restart
       ;;
     ignore)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=ignore/' $config_file
+      sed -i 's/.*HandleLidSwitch=.*/HandleLidSwitch=ignore/' $config_file
       show_status
       restart
       ;;
