@@ -20,7 +20,7 @@ show_help () {
 }
 
 show_status () {
-  sed -n '/HandleLidSwitch=/'p /etc/systemd/logind.conf
+  sed -n '/HandleLidSwitch=/'p $config_file
 }
 
 check_permissions () {
@@ -31,6 +31,13 @@ check_permissions () {
   fi
 }
 
+check_file () {
+  if [[ ! -f "$1" ]]; then
+    echo "Error: $1 not found"
+    exit
+  fi
+}
+
 parse_options () {
   case "$@" in
     status)
@@ -38,22 +45,22 @@ parse_options () {
       exit
       ;;
     poweroff)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=poweroff/' /etc/systemd/logind.conf
+      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=poweroff/' $config_file
       show_status
       restart
       ;;
     lock)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=lock/' /etc/systemd/logind.conf
+      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=lock/' $config_file
       show_status
       restart
       ;;
     suspend)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=suspend/' /etc/systemd/logind.conf
+      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=suspend/' $config_file
       show_status
       restart
       ;;
     ignore)
-      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
+      sed -i 's/HandleLidSwitch=.*/HandleLidSwitch=ignore/' $config_file
       show_status
       restart
       ;;
@@ -71,8 +78,10 @@ parse_options () {
 
 main () {
   filename=$(basename $0)
+  config_file="/etc/systemd/logind.conf"
 
   check_permissions
+  check_file $config_file
   parse_options "$@"
 }
 
